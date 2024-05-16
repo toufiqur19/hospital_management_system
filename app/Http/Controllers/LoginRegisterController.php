@@ -45,7 +45,7 @@ class LoginRegisterController extends Controller
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             if(Auth::user()->role == 'admin') {
-                return redirect('/admin')->with('message', 'User Login Successfully');
+                return redirect('/admin')->with('message', 'Admin Login Successfully');
             }
             else
             {
