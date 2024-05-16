@@ -1,0 +1,157 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
+}
+
+#nav_item{
+  z-index: 999; 
+ }
+.active{
+  background: #e12454;
+  color: #fff;
+}
+ /* work process section start*/
+.work_p{
+  cursor: pointer;
+}
+.work_p:hover .w-img{
+  transform: scale(1.1);
+}
+ /* services section start*/
+
+.service:hover .s-icon{
+  background: #f1f5f9;
+  color: #07ccec;
+}
+.service:hover .read{
+  background: #f1f5f9;
+  color: #07ccec;
+}
+.service{
+  transition: all 0.5s;
+}
+
+.service:hover .d-icon{
+  display: block;
+  margin-bottom: 0rem;
+}
+
+ /* services section end*/
+
+ /* about section start*/
+ .overlay3 {
+  position: absolute;
+  top: 3.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+details > summary::after {
+  content: '+';
+  font-size: 1.8rem;
+}
+
+details[open] > summary::after {
+  content: '-';
+  font-size: 2rem;
+}
+
+/* about section end*/
+
+/* blog section end*/
+.blog::before {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 3px;
+  background: #07ccec;
+  margin-top: 2.2rem;
+  border-radius: 0 5px 5px 0;
+}
+
+.footer_title::before {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 4px;
+  background: #07ccec;
+  margin-top: 2.5rem;
+  border-radius: 0 5px 5px 0;
+}
+
+
+footer {
+  background-image: url("https://www.swg.com/can/wp-content/uploads/sites/38/2019/04/Hospital-Case-Study-Banner-Daniel.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8)
+}
+
+/* carousel slider  start */
+.overlay2 {
+  position: absolute;
+  top: 3.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slideshow-container {
+  position: relative;
+  margin: auto;
+}
+
+/* news section */
+
+.news:hover .news_banner{
+  transform: scale(1.1);
+}
+
+/* footer banner section */
+.f-banner{
+  background-image: url(./img/f-banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 15rem;
+}
+.overlay-b{
+  width: 100%;
+  height: 15rem;
+  background: rgba(7, 204, 236, 0.8);
+}
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
+  }
+}
+/* carousel slider  end */
+
+/* testimonial slider  end */
+
+.title img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%; 
+}
+
