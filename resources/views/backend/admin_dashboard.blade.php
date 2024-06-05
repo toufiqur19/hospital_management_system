@@ -8,7 +8,7 @@
     @endif
     <main>
         <!-- // dashboard  start-->
-        <section class="lg:ml-[15rem] mx-4 mt-[1rem] bg-gray-900 w-auto h-auto text-white p-[2.5rem] rounded-md">
+        <section class="lg:ml-[15rem] mx-4 mt-[5rem] bg-gray-900 w-auto h-auto text-white p-[2.5rem] rounded-md">
             <h1 class="text-xl">Home / <span class="text-[#07ccec]">Dashboard</span></h1>
             <!-- // card -->
             <div class="lg:flex lg:space-x-4">
