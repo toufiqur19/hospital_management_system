@@ -2,11 +2,11 @@
 <header class="text-gray-800 nav pb-14">
     <nav class="fixed bg-[#07ccec] w-full z-50 flex items-center justify-between px-12 h-14 lg:gap-6">
         <a class="font-bold text-2xl whitespace-nowrap" href="{{ route('home') }}"><span><i
-                    class="fa-solid fa-hand-holding-medical"></i></span>Hospital</a>
+                    class="fa-solid fa-hand-holding-medical text-[#e12454]"></i></span>Hospital</a>
         <div id="nav_item"
             class="absolute top-14 lg:pb-0 pb-10 hidden lg:block left-0 w-full text-center lg:flex flex-col max-lg:bg-[#07ccec] lg:text-[17px] text-xl lg:static lg:flex-row lg:justify-between">
             <ul class="space-y-2 mt-2 lg:flex-row flex flex-col lg:gap-5 font-semibold">
-                <li class="lg:mt-2 hover:text-[#27477d] duration-300">
+                <li class="lg:mt-2 hover:text-[#27477d] duration-300 {{ Request::is('/')?'bg-gray-800 text-white mb-2.5 px-3 rounded-sm':''}}">
                     <a href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="hover:text-[#27477d] duration-300">

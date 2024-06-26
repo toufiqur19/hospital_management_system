@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Carusel;
+use App\Models\BannerImage;
 use Illuminate\Http\Request;
+use App\Models\CarouselImage;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class AdminHomeController extends Controller
 {
     public function carousel()
     {
-        $carousels = Carusel::get();
+        $carousels = BannerImage::get();
         return view('backend.carousel.carousel',compact('carousels'));
     }
 
@@ -23,8 +26,6 @@ class AdminHomeController extends Controller
     public function carouselCreateProcess(Request $request)
     {
         $validate = $request->validate([
-            'title' => 'required',
-            'sort_description' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,gif',
         ]);
 
@@ -32,46 +33,52 @@ class AdminHomeController extends Controller
         $path = 'uploads/carousel';
         $request->image->move($path, $imageName);
 
-        Carusel::create([
-            'title'=>$request->title,
-            'sort_description' => $request->sort_description,
+        BannerImage::create([
             'image' => $imageName,
         ]);
-        return redirect('/admin/carousel')->with('message', 'carousel Created Successfully');
+        return redirect('/admin/carousel')->with('message', 'carousel image Created Successfully');
     }
 
     public function carouselEdit($id)
     {
-        $carousels = Carusel::find($id);
+        $carousels = BannerImage::find($id);
         return view('backend.carousel.carousel_edit',compact('carousels'));
     }
 
     public function carouselUpdate(Request $request, $id)
     {
-        $carouselData = Carusel::find($id);
+        $carouselData = BannerImage::find($id);
         $validate = $request->validate([
-            'title' => 'required',
-            'sort_description' => 'required',
             'image' => 'nullable|mimes:jpeg,jpg,png,gif',
         ]);
 
         if(isset($request->image)){
-        $imageName = time().'.'.$request->image->extension();
-        $path = 'uploads/carousel';
-        $request->image->move($path, $imageName);
-        $carouselData->image = $imageName;
+            $imageName = time().'.'.$request->image->extension();
+            $path = 'uploads/carousel';
+            $request->image->move($path, $imageName);
+           
+            $image_path = public_path('uploads/carousel/'.$carouselData->image);
+            if(File::exists($image_path))
+            {
+                File::delete($image_path);
+            }
+
+            $carouselData->image = $imageName;
         }
 
-        $carouselData->title =$request->title;
-        $carouselData->sort_description = $request->sort_description;
         $carouselData->save();
-        return redirect('/admin/carousel')->with('message', 'carousel update Successfully');
+        return redirect('/admin/carousel')->with('message', 'carousel image update Successfully');
     }
 
 
     public function carouselDelete($id)
     {
-        $delete = Carusel::find($id);
+        $delete = BannerImage::find($id);
+        $image_path = public_path('uploads/carousel/'.$delete->image);
+        if(File::exists($image_path))
+        {
+            File::delete($image_path);
+        }
         $delete->delete();
         return redirect('/admin/carousel')->with('message', 'carousel items delete Successfully');
     }

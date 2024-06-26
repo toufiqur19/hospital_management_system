@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\WorkProces;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class FaqsController extends Controller
 {
@@ -15,16 +17,5 @@ class FaqsController extends Controller
     public function faqsCreate()
     {
         return view('backend.faqs_create');
-    }
-
-    // work process
-    public function workProcess()
-    {
-        return view('backend.work_process');
-    }
-
-    public function workProcessCreate()
-    {
-        return view('backend.work_process_create');
     }
 }

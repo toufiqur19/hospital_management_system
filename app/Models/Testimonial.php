@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Carusel extends Model
+class Testimonial extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title',
-        'sort_description'
+        'name',
+        'star',
+        'expert',
+        'comment',
+        'image',
     ];
-    
 }

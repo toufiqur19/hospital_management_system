@@ -6,35 +6,37 @@
         <h1 class="text-xl">Work Process / <span class="text-[#07ccec]">Create</span></h1>
         <a href="{{route('admin.work')}}" class="bg-[#07ccec] py-1.5 px-3 rounded-md text-gray-900 hover:bg-gray-700 hover:text-white duration-500">Back</a>
     </div>
-    <form class="space-y-4 md:space-y-6" action="#" enctype="multipart/form-data" method="POST">
+    <form class="space-y-4 md:space-y-6" action="{{ route('work.create.process') }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <div class="lg:flex lg:space-x-5">
-            <div class="space-y-2 w-full">
-                <label for="">Heading</label>
-                <input type="text" name="heading" id="heading" class="rounded-lg bg-transparent border-2 text-white w-full text-sm border-[#07ccec] p-2.5 outline-none" placeholder="enter your heading">
-            </div>
-            <div class="space-y-2 w-full">
-                <label for="">Title</label>
-                <input type="text" name="title" id="title" class="rounded-lg bg-transparent border-2 text-white w-full text-sm border-[#07ccec] p-2.5 outline-none" placeholder="enter your title">
-            </div>
-        </div>
         <div class="lg:flex lg:space-x-5">
         <div class="space-y-2 w-full">
             <label for="">Sort Description</label>
-            <input type="text" name="sort_desc" id="sort_desc" class="rounded-lg bg-transparent border-2 text-white w-full text-sm border-[#07ccec] p-2.5 outline-none" placeholder="enter your sort description">
+            <input type="text" name="sort_description" id="sort_desc" class="rounded-lg bg-transparent border-2 text-white w-full text-sm border-[#07ccec] p-2.5 outline-none" placeholder="enter your sort description">
+            @error('sort_description')
+            <div class="text-red-600">{{ $message }}</div>
+            @enderror
         </div>
         <div class="space-y-2 w-full">
             <label for="">Number</label>
             <input type="text" name="number" id="number" class="rounded-lg bg-transparent border-2 text-white w-full text-sm border-[#07ccec] p-2.5 outline-none" placeholder="enter your number">
+            @error('number')
+            <div class="text-red-600">{{ $message }}</div>
+            @enderror
         </div>
         </div>
         <div class="space-y-2 w-full">
             <label for="">Description</label>
             <textarea name="description" id="description" class="rounded-lg bg-transparent border-2 text-white w-full text-sm border-[#07ccec] p-2.5 outline-none" placeholder="enter your description"></textarea>
+            @error('description')
+            <div class="text-red-600">{{ $message }}</div>
+            @enderror
         </div>
         <div class="lg:mt-10">
-            <input type="file">
+            <input type="file" name="image">
         </div>
+        @error('image')
+            <div class="text-red-600">{{ $message }}</div>
+        @enderror
         <button type="submit" class=" text-gray-800 bg-[#07ccec] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md px-5 py-2.5 text-center ">Submit</button>
         
     </form>

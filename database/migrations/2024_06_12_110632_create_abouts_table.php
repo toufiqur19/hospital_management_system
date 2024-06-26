@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('carusels', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->string('heading');
             $table->string('title');
-            $table->string('sort_description');
+            $table->string('email');
+            $table->string('mobile');
+            $table->string('service_time');
+            $table->string('image');
+            $table->longText('description');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('carusels');
+        Schema::dropIfExists('abouts');
     }
 };

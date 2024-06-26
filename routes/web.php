@@ -1,17 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\DoctorsController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminAboutController;
 use App\Http\Controllers\Admin\AppoinmentController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\DoctorsController;
-use App\Http\Controllers\Admin\FaqsController;
-use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\admin\WorkProcessController;
 use App\Http\Controllers\Admin\TestimonialsController;
 
 Route::controller(HomeController::class)->group(function () {
@@ -42,23 +44,48 @@ Route::controller(AdminController::class)->group(function () {
         Route::controller(AdminAboutController::class)->group(function(){
             Route::get('/admin/about', 'adminAbout')->name('admin.about');
             Route::get('/admin/about/create', 'adminAboutCreate')->name('about.create');
+            Route::post('/admin/about/createProcess', 'AboutCreateProcess')->name('about.create.Process');
+            Route::get('/admin/about/edit/{id}', 'AboutEdit')->name('about.edit');
+            Route::put('/admin/about/update/{id}', 'AboutUpdate')->name('about.update');
+            Route::get('/admin/about/delete/{id}', 'AboutDelete')->name('about.delete');
         });
         //Faqs
         Route::controller(FaqsController::class)->group(function(){
             Route::get('/admin/faqs', 'faqs')->name('admin.faqs');
             Route::get('/admin/faqs/create', 'faqsCreate')->name('faqs.create');
             Route::get('/admin/work-process', 'workProcess')->name('admin.work');
-            Route::get('/admin/work-process/create', 'workProcessCreate')->name('work.create');
+            Route::get('/admin/work-process/create', 'workCreate')->name('work.create');
+            Route::post('/admin/work-process/create-process', 'workProcessCreate')->name('work.create.process');
+            Route::get('/admin/work-process/edit/{id}', 'workProcessEdit')->name('work.process.edit');
+            Route::put('/admin/work-process/update/{id}', 'workProcessUpdate')->name('work.process.update');
+            Route::get('/admin/work-process/delete/{id}', 'workProcessDelete')->name('work.process.delete');
+        });
+        //work process
+        Route::controller(WorkProcessController::class)->group(function(){
+            Route::get('/admin/work-process', 'workProcess')->name('admin.work');
+            Route::get('/admin/work-process/create', 'workCreate')->name('work.create');
+            Route::post('/admin/work-process/create-process', 'workProcessCreate')->name('work.create.process');
+            Route::get('/admin/work-process/edit/{id}', 'workProcessEdit')->name('work.process.edit');
+            Route::put('/admin/work-process/update/{id}', 'workProcessUpdate')->name('work.process.update');
+            Route::get('/admin/work-process/delete/{id}', 'workProcessDelete')->name('work.process.delete');
         });
         //Doctors
         Route::controller(DoctorsController::class)->group(function(){
             Route::get('/admin/doctors', 'doctors')->name('admin.doctors');
             Route::get('/admin/doctors/create', 'doctorsCreate')->name('doctors.create');
+            Route::post('/admin/doctors/create-process', 'doctorsCreateProcess')->name('doctors.create.process');
+            Route::get('/admin/doctors/edit/{id}', 'doctorsEdit')->name('doctors.edit');
+            Route::put('/admin/doctors/update/{id}', 'doctorsUpdate')->name('doctors.update');
+            Route::get('/admin/doctors/delete/{id}', 'doctorsDelete')->name('doctors.delete');
         });
         //Service
         Route::controller(ServiceController::class)->group(function(){
             Route::get('/admin/service', 'service')->name('admin.service');
             Route::get('/admin/service/create', 'serviceCreate')->name('service.create');
+            Route::post('/admin/service/createProcess', 'serviceCreateProcess')->name('service.create.process');
+            Route::get('/admin/service/edit/{id}', 'serviceEdit')->name('service.edit');
+            Route::put('/admin/service/update/{id}', 'serviceUpdate')->name('service.update');
+            Route::get('/admin/service/delete/{id}', 'serviceDelete')->name('service.delete');
         });
         //Blog
         Route::controller(BlogController::class)->group(function(){
@@ -69,6 +96,10 @@ Route::controller(AdminController::class)->group(function () {
         Route::controller(TestimonialsController::class)->group(function(){
             Route::get('/admin/testimonials', 'testimonials')->name('admin.testimonials');
             Route::get('/admin/testimonials/create', 'testimonialsCreate')->name('testimonials.create');
+            Route::post('/admin/testimonials/create-process', 'testimonialsCreateProcess')->name('testimonials.create.process');
+            Route::get('/admin/testimonials/edit/{id}', 'testimonialsEdit')->name('testimonials.edit');
+            Route::put('/admin/testimonials/update/{id}', 'testimonialsUpdate')->name('testimonials.update');
+            Route::get('/admin/testimonials/delete/{id}', 'testimonialsDelete')->name('testimonials.delete');
         });
         //Appoinment
         Route::controller(AppoinmentController::class)->group(function(){
@@ -90,3 +121,5 @@ Route::controller(AdminController::class)->group(function () {
         });
     });
 });
+
+

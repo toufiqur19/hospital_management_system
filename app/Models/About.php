@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Carusel extends Model
+class About extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'heading',
         'title',
-        'sort_description'
+        'email',
+        'mobile',
+        'service_time',
+        'description',
+        'image',
     ];
-    
 }
