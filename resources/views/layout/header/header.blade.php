@@ -22,7 +22,7 @@
                     <a href="blog.html">Blog</a>
                 </li>
                 <li class="hover:text-[#27477d] duration-300">
-                    <a href="contact.html">Contact</a>
+                    <a href="{{route('contact')}}">Contact</a>
                 </li>
             </ul>
             <div class="flex flex-col space-y-2 mt-2 mb-3 lg:flex-row lg:gap-5 lg:ml-24 cursor-pointer font-semibold">

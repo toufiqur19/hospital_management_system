@@ -367,13 +367,19 @@
                 >
                 <i class="fa-solid fa-user text-[#e12454] text-lg"></i>
                 </span>
+                
+                <form action="{{route('appointment.create.process')}}" method="POST">
+                  @csrf
                 <input
-                  type="text"
+                  type="text" name="name"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-full text-sm border-[#07ccec] p-2.5 outline-none"
                   placeholder="your name"
                 />
               </div>
+              @error('name')
+              <div class="text-red-500">{{$message}}</div>
+              @enderror
 
               <div class="flex mt-5">
                 <span
@@ -382,12 +388,15 @@
                 <i class="fa-solid fa-envelope text-[#c12454] text-lg"></i>
                 </span>
                 <input
-                  type="email"
+                  type="email" name="email"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-full text-sm border-[#07ccec] p-2.5 outline-none"
                   placeholder="your email"
                 />
               </div>
+              @error('email')
+              <div class="text-red-500">{{$message}}</div>
+              @enderror
 
               <div class="flex mt-5">
                 <span
@@ -396,12 +405,15 @@
                 <i class="fa-solid fa-phone-volume text-[#c12454] text-lg"></i>
                 </span>
                 <input
-                  type="text"
+                  type="text" name="phone"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-full text-sm border-[#07ccec] p-2.5 outline-none"
                   placeholder="your phone number"
                 />
               </div>
+              @error('phone')
+              <div class="text-red-500">{{$message}}</div>
+              @enderror
 
               <div class="flex mt-5">
                 <span
@@ -410,12 +422,15 @@
                 <i class="fa-solid fa-calendar-days text-[#e12454] text-lg"></i>
                 </span>
                 <input
-                  type="date"
+                  type="date" name="date"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-500 w-full text-sm border-[#07ccec] p-2.5 outline-none"
                   placeholder="your phone number"
                 />
               </div>
+              @error('date')
+              <div class="text-red-500">{{$message}}</div>
+              @enderror
 
               <div class="flex mt-5">
                 <span
@@ -424,58 +439,49 @@
                 <i class="fa-solid fa-clock text-[#e12454] text-lg"></i>
                 </span>
                 <input
-                  type="time"
+                  type="time" name="time"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-500 w-full text-sm border-[#07ccec] p-2.5 outline-none"
                   placeholder="your phone number"
                 />
               </div>
 
-              <div class="pt-3">
-                <select
-                  class="w-full flex flex-row justify-between pl-5 py-2.5 text-gray-500 bg-transparent border-2 border-[#07ccec] rounded-md shadow outline-none text-sm"
-                >
-                  <option value="Choice Department" selected>
-                    Choice Department
-                  </option>
-                  <option value="">sobuj1</option>
-                  <option value="">sobuj2</option>
-                  <option value="">sobuj3</option>
-                  <option value="">sobuj4</option>
-                </select>
-              </div>
+              @error('time')
+              <div class="text-red-500">{{$message}}</div>
+              @enderror
 
-              <div class="mt-5">
-                <a
-                  class="px-6 py-2 min-w-[120px] text-center text-gray-600 border-2 border-[#07ccec] rounded hover:bg-[#07ccec] hover:text-black active:bg-indigo-500 focus:outline-none focus:ring duration-500"
-                  href="/download"
-                >
-                Get In Touch!
-                </a>
+              <div class="pt-3">
+                <input
+                  type="text" name="department"
+                  id="website-admin"
+                  class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-500 w-full text-sm border-[#07ccec] p-2.5 outline-none"
+                  placeholder="your phone number"
+                />
               </div>
+              @error('department')
+              <div class="text-red-500">{{$message}}</div>
+              @enderror
+              <div class="mt-5">
+                <button type="submit" class=" text-gray-800 bg-[#07ccec] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md px-5 py-2.5 text-center ">Submit</button>
+               
+              </div>
+            </form>
             </div>
           </div>
+
           <div class="lg:w-1/3">
             <div class="text-gray-600">
               <h1 class="font-semibold text-xl">Working Houres</h1>
-              <div
+             
+              @foreach ($workingHoures as $workingHoure)
+                <div
                 class="flex justify-between mt-5 border-b-2 border-dotted pb-1"
               >
-                <span>Mon-Fri</span>
-                <p class="pl-2">8:00 am - 8:00 pm</p>
+                <span>{{$workingHoure->week_name}}</span>
+                <p class="pl-2">{{$workingHoure->time}}</p>
               </div>
-              <div
-                class="flex justify-between mt-3 border-b-2 border-dotted pb-1"
-              >
-                <span>Saturday</span>
-                <p class="pl-2">9:00 am - 6:00 pm</p>
-              </div>
-              <div
-                class="flex justify-between mt-3 border-b-2 border-dotted pb-1"
-              >
-                <span>Sunday</span>
-                <p class="pl-2">9:00 am - 4:00 pm</p>
-              </div>
+              @endforeach
+             
             </div>
           </div>
         </div>

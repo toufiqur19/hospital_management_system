@@ -48,7 +48,7 @@
                 <div id="drop_down_menu" class="bg-gray-800 lg:mt-2 pl-20 py-3 lg:space-y-2 duration-500 hidden">
                     <li
                         class="cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/appoinment') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/appoinment/create') ? 'text-[#07ccec]' : '' }}">
-                        <a href="{{ route('admin.appoinment') }}">Table 1</a>
+                        <a href="{{ route('admin.appoinment') }}">appoinment</a>
                     </li>
                     <li class="cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/appoinment/schedules') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/appoinment/schedules/create') ? 'text-[#07ccec]' : '' }}"><a
                             href="{{ route('admin.appoinment.schedules') }}">Table 2</a></li>
@@ -94,6 +94,10 @@
             <li
                 class="pl-6 py-2 cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/faqs') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/faqs/create') ? 'text-[#07ccec]' : '' }}">
                 <a href="{{ route('admin.faqs') }}">Faqs</a>
+            </li>
+            <li
+                class="pl-6 py-2 cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/workingHours') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/workingHours/create') ? 'text-[#07ccec]' : '' }}">
+                <a href="{{ route('admin.workingHours') }}">Working Hours</a>
             </li>
         </ul>
     </div>

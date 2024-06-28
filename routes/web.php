@@ -15,9 +15,13 @@ use App\Http\Controllers\Admin\AdminAboutController;
 use App\Http\Controllers\Admin\AppoinmentController;
 use App\Http\Controllers\admin\WorkProcessController;
 use App\Http\Controllers\Admin\TestimonialsController;
+use App\Http\Controllers\WorkingHoursController;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
+    Route::get('/contact', 'contact')->name('contact');
+    Route::post('/contact/store', 'contactStore')->name('contact.store');
+    Route::post('/appointment/create-process', 'appointmentCreateProcess')->name('appointment.create.process');
 });
 
 Route::controller(LoginRegisterController::class)->group(function () {
@@ -53,12 +57,10 @@ Route::controller(AdminController::class)->group(function () {
         Route::controller(FaqsController::class)->group(function(){
             Route::get('/admin/faqs', 'faqs')->name('admin.faqs');
             Route::get('/admin/faqs/create', 'faqsCreate')->name('faqs.create');
-            Route::get('/admin/work-process', 'workProcess')->name('admin.work');
-            Route::get('/admin/work-process/create', 'workCreate')->name('work.create');
-            Route::post('/admin/work-process/create-process', 'workProcessCreate')->name('work.create.process');
-            Route::get('/admin/work-process/edit/{id}', 'workProcessEdit')->name('work.process.edit');
-            Route::put('/admin/work-process/update/{id}', 'workProcessUpdate')->name('work.process.update');
-            Route::get('/admin/work-process/delete/{id}', 'workProcessDelete')->name('work.process.delete');
+            Route::post('/admin/faqs/create-process', 'faqsCreateProcess')->name('faqs.create.process');
+            Route::get('/admin/faqs/edit/{id}', 'faqsEdit')->name('faqs.edit');
+            Route::put('/admin/faqs/update/{id}', 'faqsUpdate')->name('faqs.update');
+            Route::get('/admin/faqs/delete/{id}', 'faqsDelete')->name('faqs.delete');
         });
         //work process
         Route::controller(WorkProcessController::class)->group(function(){
@@ -122,6 +124,15 @@ Route::controller(AdminController::class)->group(function () {
             Route::get('/admin/contactInfo/create', 'contactInfoCreate')->name('contactInfo.create');
             Route::get('/admin/contactDetails', 'contactDetails')->name('admin.contactDetails');
             Route::get('/admin/contactDetails/create', 'detailsCreate')->name('contactDetails.create');
+        });
+        //Working houres
+        Route::controller(WorkingHoursController::class)->group(function(){
+            Route::get('/admin/workingHours', 'workingHours')->name('admin.workingHours');
+            Route::get('/admin/workingHours/create', 'workingHoursCreate')->name('workingHours.create');
+            Route::post('/admin/workingHours/create-process', 'workingHoursCreateProcess')->name('workingHours.create.process');
+            Route::get('/admin/workingHours/edit/{id}', 'workingHoursEdit')->name('workingHours.edit');
+            Route::put('/admin/workingHours/update/{id}', 'workingHoursUpdate')->name('workingHours.update');
+            Route::get('/admin/workingHours/delete/{id}', 'workingHoursDelete')->name('workingHours.delete');
         });
     });
 });

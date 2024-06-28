@@ -13,20 +13,23 @@
                     <th scope="col" class="py-4 px-3">Name</th>
                     <th scope="col" class="py-4 px-3">Email</th>
                     <th scope="col" class="py-4 px-3">Phone</th>
-                    <th scope="col" class="py-4 px-3">Description</th>
+                    <th scope="col" class="py-4 px-3">Message</th>
                     <th scope="col" class="py-4 px-3">edit</th>
                     <th scope="col" class="py-4 px-3">delete</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($contacts as $contact)
                 <tr class="bg-gray-700">
-                    <td class="py-4 px-3">toufiqur</td>
-                    <td class="py-4 px-3">sobuj</td>
-                    <td class="py-4 px-3">sobuj</td>
-                    <td class="py-4 px-3">sobuj</td>
+                    <td class="py-4 px-3">{{$contact->name}}</td>
+                    <td class="py-4 px-3">{{$contact->email}}</td>
+                    <td class="py-4 px-3">{{$contact->phone}}</td>
+                    <td class="py-4 px-3">{{$contact->message}}</td>
                     <td class="py-4 px-3"><a class="bg-green-600 py-2 px-4 rounded-md duration-300 hover:bg-green-700" href=""><i class="fa-solid fa-pen-to-square"></i></a></td>
                     <td class="py-4 px-3"><a class="bg-red-600 py-2 px-4 rounded-md duration-300 hover:bg-red-700" href=""><i class="fa-solid fa-trash"></i></a></td>
                 </tr>
+                @endforeach
+                
             </tbody>
         </table>
     </div>

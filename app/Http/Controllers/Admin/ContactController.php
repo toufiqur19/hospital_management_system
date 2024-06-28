@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
     public function title()
     {
+       
         return view('backend.contact.title');
     }
 
@@ -19,7 +21,8 @@ class ContactController extends Controller
     //contact info
     public function contactInfo()
     {
-        return view('backend.contact.contact_info');
+        $contacts = Contact::all();
+        return view('backend.contact.contact_info',compact('contacts'));
     }
 
     public function contactInfoCreate()
