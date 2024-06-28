@@ -303,20 +303,21 @@
       <h4 class="text-center pb-10 pt-5 text-xl">Our Latest News & Blogs</h4>
 
       <div class="lg:flex lg:space-x-5 space-y-5 lg:space-y-0 lg:mx-20 mx-5">
+        
+        @foreach ($blogs as $blog)
         <a href="blogDetails.html"><div
           class="bg-[#07ccec] lg:w-1/3 news overflow-hidden cursor-pointer rounded-md"
         >
           <div class="news_banner duration-300">
-            <img src="./img/blog-1.jpg" alt="" />
+            <img src="{{asset('uploads/blog/'.$blog->image)}}" alt="" />
           </div>
           <div class="relative p-5">
             <div class="flex justify-between">
-              <h1>Sobuj</h1>
-              <p>22 April 2024</p>
+              <h1>{{$blog->name}}</h1>
+              <p>{{$blog->date}}</p>
             </div>
             <h3>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis, consectetur.
+              {{$blog->description}}
             </h3>
             <div class="mt-5">
               <a
@@ -327,56 +328,7 @@
             </div>
           </div>
         </div></a>
-
-        <a href="blogDetails.html"><div
-          class="bg-[#07ccec] lg:w-1/3 news overflow-hidden cursor-pointer rounded-md"
-        >
-          <div class="news_banner duration-300">
-            <img src="./img/blog-1.jpg" alt="" />
-          </div>
-          <div class="relative p-5">
-            <div class="flex justify-between">
-              <h1>Sobuj</h1>
-              <p>22 April 2024</p>
-            </div>
-            <h3>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis, consectetur.
-            </h3>
-            <div class="mt-5">
-              <a
-                class="read px-6 py-2 min-w-[120px] text-center bg-[#f1f5f9] rounded text-[#07ccec] border-2 border-[#f1f5f9] hover:bg-transparent hover:text-black duration-500"
-                href="/download"
-                >Read More</a
-              >
-            </div>
-          </div>
-        </div></a>
-
-        <a href="blogDetails.html"><div
-          class="bg-[#07ccec] lg:w-1/3 news overflow-hidden cursor-pointer rounded-md"
-        >
-          <div class="news_banner duration-300">
-            <img src="./img/blog-1.jpg" alt="" />
-          </div>
-          <div class="relative p-5">
-            <div class="flex justify-between">
-              <h1>Sobuj</h1>
-              <p>22 April 2024</p>
-            </div>
-            <h3>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis, consectetur.
-            </h3>
-            <div class="mt-5">
-              <a
-                class="read px-6 py-2 min-w-[120px] text-center bg-[#f1f5f9] rounded text-[#07ccec] border-2 border-[#f1f5f9] hover:bg-transparent hover:text-black duration-500"
-                href="/download"
-                >Read More</a
-              >
-            </div>
-          </div>
-        </div></a>
+        @endforeach
 
       </div>
       <a
@@ -402,7 +354,7 @@
           class="lg:flex lg:space-x-10 lg:space-y-0 space-y-8 cursor-pointer"
         >
           <div class="lg:w-1/2 lg:mt-10 bg-[#07ccec] rounded-md">
-            <img class="h-[25.5rem]" src="./img/appmointment.png" alt="" />
+            <img class="h-[25.5rem]" src="{{asset('assets/img/appmointment.png')}}" alt="" />
           </div>
           <div class="lg:w-1/2">
             <h1 class="font-semibold text-xl text-gray-600">

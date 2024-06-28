@@ -91,6 +91,10 @@ Route::controller(AdminController::class)->group(function () {
         Route::controller(BlogController::class)->group(function(){
             Route::get('/admin/blog', 'blog')->name('admin.blog');
             Route::get('/admin/blog/create', 'blogCreate')->name('blog.create');
+            Route::post('/admin/blog/create-process', 'blogCreateProcess')->name('blog.create.process');
+            Route::get('/admin/blog/edit/{id}', 'blogEdit')->name('blog.edit');
+            Route::put('/admin/blog/update/{id}', 'blogUpdate')->name('blog.update');
+            Route::get('/admin/blog/delete/{id}', 'blogDelete')->name('blog.delete');
         });
         //Testimonials
         Route::controller(TestimonialsController::class)->group(function(){

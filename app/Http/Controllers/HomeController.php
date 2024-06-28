@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\About;
 use App\Models\Doctor;
 use App\Models\Carusel;
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $doctors = Doctor::get();
         $services = Service::get();
         $testimonials = Testimonial::get();
+        $blogs = Blog::get();
         return view('fontend.home',compact(
             "carousels",
             "carouselsData",
@@ -29,7 +31,8 @@ class HomeController extends Controller
             "workProcess",
             "doctors",
             "services",
-            "testimonials"
+            "testimonials",
+            "blogs",
         ));
     }
     
