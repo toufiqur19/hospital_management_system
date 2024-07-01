@@ -5,30 +5,30 @@
                     class="fa-solid fa-hand-holding-medical text-[#e12454]"></i></span>Hospital</a>
         <div id="nav_item"
             class="absolute top-14 lg:pb-0 pb-10 hidden lg:block left-0 w-full text-center lg:flex flex-col max-lg:bg-[#07ccec] lg:text-[17px] text-xl lg:static lg:flex-row lg:justify-between">
-            <ul class="space-y-2 mt-2 lg:flex-row flex flex-col lg:gap-5 font-semibold">
-                <li class="lg:mt-2 hover:text-[#27477d] duration-300 {{ Request::is('/')?'bg-gray-800 text-white mb-2.5 px-3 rounded-sm':''}}">
+            <ul class="lg:flex-row flex flex-col lg:gap-5 font-semibold justify-center items-center">
+                <li class="  hover:text-black duration-300 {{ Request::is('/')?'border-b-[3px] border-gray-600 rounded-sm':''}}">
                     <a href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="hover:text-[#27477d] duration-300">
-                    <a href="about.html">About</a>
+                <li class="hover:text-black duration-300 {{ Request::is('abouts')?' border-b-[3px] border-gray-600 rounded-sm':''}}">
+                    <a href="{{ route('abouts') }}">About</a>
                 </li>
-                <li class="hover:text-[#27477d] duration-300">
-                    <a href="doctor.html">Doctors</a>
+                <li class="hover:text-black duration-300 {{ Request::is('doctors')?'border-b-[3px] border-gray-600 rounded-sm':''}}">
+                    <a href="{{route('doctors')}}">Doctors</a>
                 </li>
-                <li class="hover:text-[#27477d] duration-300">
-                    <a href="departments.html">Departments</a>
+                <li class="hover:text-black duration-300 {{ Request::is('departments')?'border-b-[3px] border-gray-600 rounded-sm':''}}">
+                    <a href="{{ route('departments') }}">Departments</a>
                 </li>
-                <li class="hover:text-[#27477d] duration-300">
-                    <a href="blog.html">Blog</a>
+                <li class="hover:text-black duration-300 {{ Request::is('blog')?'border-b-[3px] border-gray-600 rounded-sm':''}}">
+                    <a href="{{ route('blog') }}">Blog</a>
                 </li>
-                <li class="hover:text-[#27477d] duration-300">
+                <li class="hover:text-black duration-300">
                     <a href="{{route('contact')}}">Contact</a>
                 </li>
             </ul>
             <div class="flex flex-col space-y-2 mt-2 mb-3 lg:flex-row lg:gap-5 lg:ml-24 cursor-pointer font-semibold">
                 @guest
-                    <a class="lg:mt-2 hover:text-[#27477d] duration-300" href="{{ route('login') }}">Login</a>
-                    <a class="hover:text-[#27477d] duration-300" href="{{ route('register') }}">SignUp</a>
+                    <a class="lg:mt-2 hover:text-black duration-300" href="{{ route('login') }}">Login</a>
+                    <a class="hover:text-black duration-300" href="{{ route('register') }}">SignUp</a>
                 @endguest
                 @auth
                     <div class="relative lg:ml-20 lg:mt-1">
@@ -53,7 +53,7 @@
                 @endauth
             </div>
             <a class="px-6 pt-0.5 bg-gray-800 font-semibold text-[#07ccec] rounded-sm my-3"
-                href="appointment .html">Appoinment</a>
+                href="{{ route('appointment') }}">Appoinment</a>
 
 
 

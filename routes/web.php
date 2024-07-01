@@ -5,20 +5,29 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\FaqsController;
+use App\Http\Controllers\AppoinmentController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\WorkingHoursController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DoctorsController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\SchedulesController;
 use App\Http\Controllers\Admin\AdminAboutController;
-use App\Http\Controllers\Admin\AppoinmentController;
 use App\Http\Controllers\admin\WorkProcessController;
 use App\Http\Controllers\Admin\TestimonialsController;
-use App\Http\Controllers\WorkingHoursController;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
+    Route::get('/abouts', 'abouts')->name('abouts');
+    Route::get('/doctors', 'doctors')->name('doctors');
+    Route::get('/departments', 'departments')->name('departments');
+    Route::get('/departments/departments-details/{id}', 'departmentsDetails')->name('departments.details');
+    Route::get('/appointment', 'appointment')->name('appointment');
+    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/blog/blog-details/{id}', 'blogDetails')->name('blog.details');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::post('/appointment/create-process', 'appointmentCreateProcess')->name('appointment.create.process');
@@ -108,13 +117,8 @@ Route::controller(AdminController::class)->group(function () {
             Route::get('/admin/testimonials/delete/{id}', 'testimonialsDelete')->name('testimonials.delete');
         });
         //Appoinment
-        Route::controller(AppoinmentController::class)->group(function(){
-            Route::get('/admin/appoinment', 'appoinment')->name('admin.appoinment');
-            Route::get('/admin/appoinment/create', 'appoinmentCreate')->name('appoinment.create');
+        Route::controller(SchedulesController::class)->group(function(){
             Route::get('/admin/appoinment/schedules', 'schedules')->name('admin.appoinment.schedules');
-            Route::get('/admin/appoinment/schedules/create', 'schedulesCreate')->name('schedules.create');
-            Route::get('/admin/appoinment/details', 'details')->name('admin.appoinment.details');
-            Route::get('/admin/appoinment/details/create', 'detailsCreate')->name('details.create');
         });
         //Contact
         Route::controller(ContactController::class)->group(function(){
@@ -133,6 +137,15 @@ Route::controller(AdminController::class)->group(function () {
             Route::get('/admin/workingHours/edit/{id}', 'workingHoursEdit')->name('workingHours.edit');
             Route::put('/admin/workingHours/update/{id}', 'workingHoursUpdate')->name('workingHours.update');
             Route::get('/admin/workingHours/delete/{id}', 'workingHoursDelete')->name('workingHours.delete');
+        });
+        //Category
+        Route::controller(CategoryController::class)->group(function(){
+            Route::get('/admin/category', 'category')->name('admin.category');
+            Route::get('/admin/category/create', 'categoryCreate')->name('category.create');
+            Route::post('/admin/category/create-process', 'categoryCreateProcess')->name('category.create.process');
+            Route::get('/admin/category/edit/{id}', 'categoryEdit')->name('category.edit');
+            Route::put('/admin/category/update/{id}', 'categoryUpdate')->name('category.update');
+            Route::get('/admin/category/delete/{id}', 'categoryDelete')->name('category.delete');
         });
     });
 });

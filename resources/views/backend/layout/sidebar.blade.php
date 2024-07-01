@@ -36,27 +36,30 @@
                 <a href="{{ route('admin.doctors') }}">Doctors</a>
             </li>
             <li
-                class="pl-6 py-2 cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/about') ? 'text-[#07ccec]' : '' }}">
-                <a href="">Department</a>
+                class="pl-6 py-2 cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/appoinment/schedules') ? 'text-[#07ccec]' : '' }}">
+                <a href="{{ route('admin.appoinment.schedules') }}">Appoinment</a>
             </li>
-             <!-- deopdown menu start-->
+            <li
+                class="pl-6 py-2 cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/category') ? 'text-[#07ccec]' : '' }}">
+                <a href="{{ route('admin.category') }}">Category</a>
+            </li>
+             {{-- <!-- deopdown menu start-->
              <ul class="relative" onclick="dropDown()">
                 <div class="flex lg:justify-between cursor-pointer items-center lg:pr-6 lg:ml-0 md:ml-[42%] ml-[34%]">
-                    <li class="pl-6 py-2 hover:text-[#07ccec] hover:translate-x-1 duration-500">Appoinment</li>
+                    <li class="pl-6 py-2 hover:text-[#07ccec] hover:translate-x-1 duration-500">Category</li>
                     <i class="fa-solid fa-chevron-down text-[.8rem] icon ml-5 lg:ml-0"></i>
                 </div>
                 <div id="drop_down_menu" class="bg-gray-800 lg:mt-2 pl-20 py-3 lg:space-y-2 duration-500 hidden">
                     <li
                         class="cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/appoinment') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/appoinment/create') ? 'text-[#07ccec]' : '' }}">
-                        <a href="{{ route('admin.appoinment') }}">appoinment</a>
+                        <a href="">Department</a>
                     </li>
                     <li class="cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/appoinment/schedules') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/appoinment/schedules/create') ? 'text-[#07ccec]' : '' }}"><a
-                            href="{{ route('admin.appoinment.schedules') }}">Table 2</a></li>
-                    <li class="cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/appoinment/details') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/appoinment/details/create') ? 'text-[#07ccec]' : '' }}"><a
-                            href="{{ route('admin.appoinment.details') }}">Table 3</a></li>
+                            href="">Blog</a>
+                    </li>
                 </div>
             </ul>
-            <!-- deopdown menu end-->
+            <!-- deopdown menu end--> --}}
             <li
                 class="pl-6 py-2 cursor-pointer hover:text-[#07ccec] hover:translate-x-1 duration-500 {{ Request::is('admin/blog') ? 'text-[#07ccec]' : '' }} {{ Request::is('admin/blog/create') ? 'text-[#07ccec]' : '' }}">
                 <a href="{{ route('admin.blog') }}">Blog</a>

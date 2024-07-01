@@ -28,7 +28,7 @@
                 <tr class="bg-gray-700">
                     <td class="py-4 px-3">{{$blog->name}}</td>
                     <td class="py-4 px-3">{{$blog->date}}</td>
-                    <td class="py-4 px-3">{{$blog->description}}</td>
+                    <td class="py-4 px-3">{{Str::limit($blog->description, 10)}}</td>
                     <td class="py-4 px-3">
                         <img src="{{ asset('uploads/blog/'.$blog->image)}}" alt="" width="50" height="50">
                     </td>

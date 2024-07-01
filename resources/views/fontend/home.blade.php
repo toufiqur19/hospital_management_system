@@ -2,7 +2,7 @@
 
 @section('content')
 @if (session()->has('message'))
-<div class="pr-10 my-4 float-end font-semibold text-green-500 role="alert">
+<div class="pr-10 my-4 top-10 float-end font-semibold text-gray-800 role="alert">
     {{ session()->get('message') }}
 </div>
 @endif
@@ -354,7 +354,7 @@
           class="lg:flex lg:space-x-10 lg:space-y-0 space-y-8 cursor-pointer"
         >
           <div class="lg:w-1/2 lg:mt-10 bg-[#07ccec] rounded-md">
-            <img class="h-[25.5rem]" src="{{asset('assets/img/appmointment.png')}}" alt="" />
+            <img class="h-[25.5rem] lg:mt-6" src="{{asset('assets/img/appmointment.png')}}" alt="" />
           </div>
           <div class="lg:w-1/2">
             <h1 class="font-semibold text-xl text-gray-600">
@@ -373,8 +373,8 @@
                 <input
                   type="text" name="name"
                   id="website-admin"
-                  class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-full text-sm border-[#07ccec] p-2.5 outline-none"
-                  placeholder="your name"
+                  class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-[15.5rem] text-sm border-[#07ccec] p-2.5 outline-none"
+                  placeholder="enter your name"
                 />
               </div>
               @error('name')
@@ -391,7 +391,7 @@
                   type="email" name="email"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-full text-sm border-[#07ccec] p-2.5 outline-none"
-                  placeholder="your email"
+                  placeholder="enter your email"
                 />
               </div>
               @error('email')
@@ -408,7 +408,7 @@
                   type="text" name="phone"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-900 w-full text-sm border-[#07ccec] p-2.5 outline-none"
-                  placeholder="your phone number"
+                  placeholder="enter your phone number"
                 />
               </div>
               @error('phone')
@@ -425,7 +425,7 @@
                   type="date" name="date"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-500 w-full text-sm border-[#07ccec] p-2.5 outline-none"
-                  placeholder="your phone number"
+                  placeholder="enter your phone number"
                 />
               </div>
               @error('date')
@@ -442,7 +442,7 @@
                   type="time" name="time"
                   id="website-admin"
                   class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-500 w-full text-sm border-[#07ccec] p-2.5 outline-none"
-                  placeholder="your phone number"
+                  placeholder="enter your phone number"
                 />
               </div>
 
@@ -451,12 +451,18 @@
               @enderror
 
               <div class="pt-3">
-                <input
-                  type="text" name="department"
-                  id="website-admin"
-                  class="rounded-none rounded-e-lg bg-transparent border-2 text-gray-500 w-full text-sm border-[#07ccec] p-2.5 outline-none"
-                  placeholder="your phone number"
-                />
+                <select name="department" class="w-full flex flex-row justify-between pl-5 py-2.5 text-gray-500 bg-transparent border-2 border-[#07ccec] rounded-md shadow outline-none text-sm">
+                  <option value="Choice Department" selected>
+                    Choice Department
+                  </option>
+                  @if($categories->count() > 0)
+                    @foreach($categories as $categorie)
+                      <option value="{{$categorie->department_name}}">{{$categorie->department_name}}</option>
+                    @endForeach
+                  @else
+                  No Record Found
+                  @endif   
+               </select>        
               </div>
               @error('department')
               <div class="text-red-500">{{$message}}</div>
@@ -489,21 +495,6 @@
     </section>
     <!-- Appointment section end-->
 
-    <div class="f-banner">
-      <div class="overlay-b text-center lg:pt-[6%] pt-[10%]">
-        <h4 class="text-xl">Need a Doctor for Check-up?</h4>
-        <h1 class="text-3xl text-bold text-[#e12454]">
-          Just Make An Appointment
-        </h1>
-        <div class="mt-5">
-          <a
-            class="px-6 py-2 min-w-[120px] text-center text-black border-2 border-[#f1f5f9] rounded hover:bg-[#f1f5f9] hover:text-black active:bg-indigo-500 focus:outline-none focus:ring duration-500"
-            href="appointment .html"
-          >
-            Make an Appoinment
-          </a>
-        </div>
-      </div>
-    </div>
+    @include('fontend.footer_banner')
   </main>
 @endsection

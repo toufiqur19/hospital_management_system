@@ -55,7 +55,7 @@ class DoctorsController extends Controller
         $request->validate([
             'name'=>'required',
             'expart'=>'required',
-            'image' => 'required|mimes:jpeg,jpg,png,gif',
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif',
         ]);
 
         if($request->has('image')){
