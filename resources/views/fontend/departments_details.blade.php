@@ -4,7 +4,7 @@
 <main class="">
     @include('fontend.banner',[
         'title'=>'Departments Details',
-        'image'=>'assets/img/contact1.png',
+        'image'=>'https://www.swg.com/can/wp-content/uploads/sites/38/2019/04/Hospital-Case-Study-Banner-Daniel.png',
         ])
 
 <section class="py-14">

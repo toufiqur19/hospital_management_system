@@ -19,7 +19,7 @@
      
       @foreach ($doctors as $doctor)
       <div class="text-center lg:w-1/4 lg:h-[18.55rem] p-4 pt-5 bg-[#cbd5e1] cursor-pointer hover:bg-[#07ccec] service rounded-md">
-        <a href="doctorDetails .html">
+        <a href="{{ route('doctors.details', $doctor->id) }}">
           <div class="relative">
             <img
               class=""

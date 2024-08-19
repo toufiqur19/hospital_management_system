@@ -64,6 +64,12 @@ class HomeController extends Controller
         return view('fontend.doctors',compact('doctors'));
     }
 
+    public function doctorsDetails($id)
+    {
+        $doctorsDetails = Doctor::find($id);
+        return view('fontend.doctors_details',compact('doctorsDetails'));
+    }
+
     public function appointmentCreateProcess(Request $request)
     {
         $request->validate([

@@ -23,6 +23,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/abouts', 'abouts')->name('abouts');
     Route::get('/doctors', 'doctors')->name('doctors');
+    Route::get('/doctors/doctors-details/{id}', 'doctorsDetails')->name('doctors.details');
     Route::get('/departments', 'departments')->name('departments');
     Route::get('/departments/departments-details/{id}', 'departmentsDetails')->name('departments.details');
     Route::get('/appointment', 'appointment')->name('appointment');
