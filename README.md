@@ -20,4 +20,3 @@
   - run : php artisan key:generate
   - run : php artisan migrate:fresh --seed
   - run : php artisan serve
-- ** Table Column rename or datatype chang: library-run : composer require doctrine/dbal
